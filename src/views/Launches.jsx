@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React, {useEffect} from 'react';
 import ConnectedView from './ConnectedView';
 import {fetchLaunchesIfNeeded} from "../actions/Launches";
 import Launch from '../components/Launch';
 
-class LaunchesView extends Component {
-  componentDidMount() {
-    const { dispatch, launchesCollection } = this.props;
-    fetchLaunchesIfNeeded({ dispatch, launchesCollection });
-  }
+const LaunchesView = ({ dispatch, launchCollection }) => {
+  useEffect(() => {
+    fetchLaunchesIfNeeded({ dispatch, launchCollection });
+  }, []);
 
-  getContent() {
-    const { launchCollection } = this.props;
-
+  const getContent = () => {
     if (!launchCollection || launchCollection.fetching) {
       return <div> LOADING </div>;
     }
@@ -37,14 +34,12 @@ class LaunchesView extends Component {
     return <ul>{launches}</ul>;
   }
 
-  render() {
-    return (
-      <div>
-        <h2> SpaceX launches </h2>
-        {this.getContent()}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h2> SpaceX launches </h2>
+      {getContent()}
+    </div>
+  );
 }
 
 export default ConnectedView(LaunchesView, 'launches');

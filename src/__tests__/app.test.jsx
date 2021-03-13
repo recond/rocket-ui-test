@@ -8,6 +8,8 @@ configure({ adapter: new Adapter() });
 
 const mockStore = {
   getState: () => ({}),
+  subscribe: () => 'random value',
+  dispatch: () => {}
 }
 
 describe('app', () => {

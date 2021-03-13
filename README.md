@@ -50,6 +50,10 @@ git clone https://github.com/seamusmalone/ui-test-base
 ```
 npm install
 ```
+If you find problems with macOS Catalina when building node-gyp:
+1. Uninstall xcode-tools
+2. Reinstall xcode-tools
+3. If problem persists, use Node v8.16.1 (You can use [nvm](https://github.com/nvm-sh/nvm) for that)
 
 * Run development server:
 

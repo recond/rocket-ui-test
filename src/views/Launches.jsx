@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import ConnectedView from './ConnectedView';
-import {fetchLaunchesIfNeeded} from "../actions/Launches";
+import {fetchLaunchesIfNeeded} from "../actions/LaunchActions";
 import Launch from '../components/Launch';
 
 const LaunchesView = ({ dispatch, launchCollection }) => {

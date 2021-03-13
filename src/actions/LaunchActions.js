@@ -1,9 +1,5 @@
 import LaunchService from '../services/LaunchService';
-
-export const ACTIONS = {
-  REQUEST_LAUNCHES: 'REQUEST_LAUNCHES',
-  RECEIVE_LAUNCHES: 'RECEIVE_LAUNCHES'
-};
+import * as ACTIONS from './LaunchTypes';
 
 export const requestLaunches = () => ({
   type: ACTIONS.REQUEST_LAUNCHES
@@ -21,7 +17,7 @@ export const fetchLaunches = dispatch => {
   return LaunchService.get().then(response => dispatch(receiveLaunches(response)));
 };
 
-const shouldFetchLaunches = launchCollection => !launchCollection || !launchCollection.fetching;
+export const shouldFetchLaunches = launchCollection => !launchCollection || !launchCollection.launches.length || (!launchCollection.fetching && !launchCollection.launches.length);
 
 export const fetchLaunchesIfNeeded = ({ dispatch, launchCollection }) =>
   shouldFetchLaunches(launchCollection) && fetchLaunches(dispatch);

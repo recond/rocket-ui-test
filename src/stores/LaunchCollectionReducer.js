@@ -1,4 +1,4 @@
-import { ACTIONS } from '../actions/Launches';
+import * as ACTIONS from '../actions/LaunchTypes';
 
 const initialState = {
   launches: [],

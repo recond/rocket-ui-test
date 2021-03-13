@@ -1,0 +1,2 @@
+export const REQUEST_ROCKET = 'REQUEST_ROCKET';
+export const RECEIVE_ROCKET = 'RECEIVE_ROCKET';

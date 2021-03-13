@@ -1,10 +1,10 @@
 import api from './ApiService';
 import {SERVICES_URL} from '../config';
 
-const serviceUrl = `${SERVICES_URL}/launches`;
+const serviceUrl = `${SERVICES_URL}/rockets`;
 
-const launchService = {
+const rocketService = {
   get: () => api.get(`${serviceUrl}`)
 };
 
-export default launchService;
+export default rocketService;

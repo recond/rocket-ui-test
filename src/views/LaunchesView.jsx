@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ConnectedView from './ConnectedView';
 import {fetchLaunchesIfNeeded} from "../actions/LaunchActions";
 import Launch from '../components/Launch';
@@ -7,6 +7,8 @@ const LaunchesView = ({ dispatch, launchCollection }) => {
   useEffect(() => {
     fetchLaunchesIfNeeded({ dispatch, launchCollection });
   }, []);
+
+  const [expandedLaunch, setExpandedLaunch] = useState('');
 
   const getContent = () => {
     if (!launchCollection || launchCollection.fetching) {
@@ -21,8 +23,10 @@ const LaunchesView = ({ dispatch, launchCollection }) => {
       <ul>
         {launchCollection.launches.map(launch => (
           <Launch {...{
-            key: launch.launch_id,
-            launch
+            key: `${launch.flight_number}${launch.mission_name}`,
+            launch,
+            expandedLaunch,
+            setExpandedLaunch
           }} />
         ))}
       </ul>

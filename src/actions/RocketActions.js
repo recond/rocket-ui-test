@@ -20,5 +20,12 @@ export const fetchRocket = dispatch => {
 
 export const shouldFetchRocket = (rocketId, rocketData) => !rocketData || (!rocketData.fetching && !rocketData[rocketId]);
 
-export const fetchRocketsIfNeeded = ({ dispatch, rocketId, rocketData }) =>
+export const fetchRocketIfNeeded = ({ dispatch, rocketId, rocketData }) =>
   shouldFetchRocket(rocketId, rocketData) && fetchRocket(dispatch, rocketId);
+
+export const fetchRocketData = rocketId => (dispatch, getState) => {
+    const {
+      rockets: { rocketData }
+    } = getState();
+    return fetchRocketIfNeeded({ dispatch, rocketId, rocketData });
+  };

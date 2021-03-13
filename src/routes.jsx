@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import Launches from './views/Launches';
+import Launches from './views/LaunchesView';
 
 const Routes = () => (
   <Router>

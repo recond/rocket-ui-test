@@ -49,7 +49,7 @@ describe('app', () => {
         } />
     </Provider>);
     expect(wrapper.text()).toContain(`Flight Number: ${mockLaunch.flight_number}`);
-    expect(wrapper.text()).toContain(`Rocket ID: ${mockLaunch.rocket.rocket_id}`);
+    expect(wrapper.text()).toContain(`ROCKET DETAILS`);
   })
 
   it('expand launch on click', () => {
@@ -68,7 +68,7 @@ describe('app', () => {
         } />
     </Provider>);
     expect(wrapper.text()).toContain(`Flight Number: ${mockLaunch.flight_number}`);
-    expect(wrapper.text()).not.toContain(`Rocket ID: ${mockLaunch.rocket.rocket_id}`);
+    expect(wrapper.text()).not.toContain(`ROCKET DETAILS`);
     wrapper.find('h2').simulate('click');
     expect(mockLaunchId).toEqual(mockLaunch.flight_number + mockLaunch.mission_name);
   });
@@ -89,7 +89,7 @@ describe('app', () => {
         } />
     </Provider>);
     expect(wrapper.text()).toContain(`Flight Number: ${mockLaunch.flight_number}`);
-    expect(wrapper.text()).toContain(`Rocket ID: ${mockLaunch.rocket.rocket_id}`);
+    expect(wrapper.text()).toContain(`ROCKET DETAILS`);
     wrapper.find('h2').simulate('click');
     expect(mockLaunchId).toEqual('');
   });

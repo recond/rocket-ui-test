@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const Rocket = ({rocketId,rocketData}) => {
   return (
-    <div>
-      <h4> ROCKET DETAILS </h4>
-      <div>Rocket ID: {rocketId}</div>
-      <div>Cost Per Launch: {rocketData[rocketId] && rocketData[rocketId].cost_per_launch}</div>
-      <div>Description: {rocketData[rocketId] && rocketData[rocketId].description}</div>
-    </div>
+    <Fragment>
+      <div><span className="rocketDataTitle">Rocket ID:</span> {rocketId}</div>
+      <div><span className="rocketDataTitle">Cost Per Launch:</span> {rocketData[rocketId] && rocketData[rocketId].cost_per_launch}</div>
+      <div><span className="rocketDataTitle">Description:</span> {rocketData[rocketId] && rocketData[rocketId].description}</div>
+    </Fragment>
   )
 }
 

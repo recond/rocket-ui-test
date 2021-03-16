@@ -13,9 +13,9 @@ const receiveRocket = (response, rocketId) => ({
   }
 });
 
-export const fetchRocket = dispatch => {
+export const fetchRocket = (dispatch, rocketId) => {
   dispatch(requestRocket());
-  return RocketService.get().then(response => dispatch(receiveRocket(response)));
+  return RocketService.get(rocketId).then(response => dispatch(receiveRocket(response, rocketId)));
 };
 
 export const shouldFetchRocket = (rocketId, rocketData) => !rocketData || (!rocketData.fetching && !rocketData[rocketId]);

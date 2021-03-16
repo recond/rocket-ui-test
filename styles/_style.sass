@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto')
+@import 'abstracts/variables'
 
 body
   margin: 0
@@ -22,11 +23,19 @@ body
       flex: 1
       flex-direction: row
       max-width: 1400px
+      @media screen and (max-width: $mobile)
+        flex-direction: column
 
       > nav
-        width: 200px
-        border-right: 2px solid #999
-        background: #eee
+        width: 20%
+        max-width: 200px
+        @media screen and (max-width: $mobile)
+          width: 100%
+          max-width: 100%
+          border-right: none
+          border-bottom: $nav-border
+        border-right: $nav-border
+        color: #fff
 
         > ul
           list-style: none
@@ -36,28 +45,48 @@ body
           > li
             margin: 4px;
             padding: 4px
-            background: #ccc
-            border-bottom: 2px solid #ccc
 
             &:hover
-              background: #ddd
-              border-bottom: 2px solid #999
+              border: $card-border
 
             > a
               width: 100%
               text-decoration: none
-              color: #333
+              color: #fff
               padding: 4px
               display: block
-
-
 
       > section
         flex: 1
         overflow: auto
         padding: 20px
+        color: #fff
 
-        > h1
+        h1
           margin-top: 0
           border-bottom: 2px solid #999
-          color: #666
+          color: #fff
+          text-align: center
+
+        ul
+          margin: 0px
+          padding: 0px
+
+          > li
+            list-style-type: none
+            position: relative
+            padding: 0px 15px 15px 15px
+            border: $card-border
+            background-color: $card-background
+            color: #fff
+            margin-bottom: 5px
+            cursor: pointer
+
+            .rocketDetails
+              border-top: $card-border
+              margin-top: 20px
+              color: rgba(255, 255, 255, 0.7);
+
+              .rocketDataTitle
+                font-weight: bold
+          

@@ -35,7 +35,7 @@ const LaunchesView = ({ dispatch, launchCollection }) => {
 
   return (
     <div>
-      <h2> SpaceX launches </h2>
+      <h1> SpaceX launches </h1>
       {getContent()}
     </div>
   );

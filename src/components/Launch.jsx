@@ -8,8 +8,8 @@ const Launch = ({launch, expandedLaunch, setExpandedLaunch}) => {
   const toggleRocket = () => showRocketData ? setExpandedLaunch('') : setExpandedLaunch(`${launch.flight_number}${launch.mission_name}`);
 
   return (
-    <li>
-      <h2 onClick={() => toggleRocket()}> { launch.mission_name } </h2>
+    <li onClick={() => toggleRocket()}>
+      <h2> { launch.mission_name } </h2>
       <div> Flight Number: { launch.flight_number } </div>
       {showRocketData && (
         <RocketView rocketId={launch.rocket.rocket_id} />
